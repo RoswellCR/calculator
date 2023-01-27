@@ -87,6 +87,7 @@ export default function CalculatorState({children}){
             setOperation(null);
             setMemory(res);
             setIsReset(true);
+            setIsDecimal(false)
         }
     }
     function handleExecuteAction(action){
@@ -124,14 +125,26 @@ export default function CalculatorState({children}){
     }
 
     function deleteNumber(){
-        setCurrentValue(parseInt(currentValue/10)) 
+        const index = currentValue.toString().indexOf(".");
+        if(index > 0){
+            const numberOfDecimals = currentValue.toString().slice(index + 1).length;
+            if(numberOfDecimals===1){
+                const min = Math.floor(currentValue);
+                setCurrentValue(min);
+            } else {
+                const newNumber = parseFloat(currentValue).toFixed(numberOfDecimals - 1);
+                setCurrentValue(newNumber);
+            }
+         }
+        //setCurrentValue(parseInt(currentValue/10)) 
     }
 
     function clean(){
-        setCurrentValue(0)
-        setOperation(null)
-        setMemory(0)
-        setIsReset(true)
+        setCurrentValue(0);
+        setOperation(null);
+        setMemory(0);
+        setIsReset(true);
+        setIsDecimal(false);
     }
 
     return (

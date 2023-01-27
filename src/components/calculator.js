@@ -2,6 +2,8 @@ import CalculatorScreen from "./calculatorScreen";
 import CalculatorState from "./calculatorState";
 import Button from "./button"
 
+import "./calculator.css";
+
 export default function Calculator(){
     return (<CalculatorState>
         <div className="calculatorContainer">

@@ -21,5 +21,5 @@ export default function Button({type, value}){
         }
     }
 
-    return <button className="calculatorButton" onClick={handleClick}></button>
+    return <button className="calculatorButton" onClick={handleClick} >{value}</button>
 }
