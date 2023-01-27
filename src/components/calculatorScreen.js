@@ -9,6 +9,6 @@ export default function CalculatorScreen(){
             Memory:{calculator.memory}
             Operation:{calculator.operation}
         </div>
-        <div className="calculatorCurrentValue">{calculator.currentValue}</div>
+        <div className="calculatorCurrentValue">{calculator.currentValue} { calculator.isDecimal ? '.': '' }</div>
     </div>)
 }
