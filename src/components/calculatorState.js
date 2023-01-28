@@ -47,6 +47,7 @@ export default function CalculatorState({children}){
             setCurrentValue(parseFloat(newValue))
         }
     }
+    
     function handleAddOperation(operat){
         if(currentValue){
             if(operation){
@@ -90,6 +91,7 @@ export default function CalculatorState({children}){
             setIsDecimal(false)
         }
     }
+    
     function handleExecuteAction(action){
         switch (action) {
             case "=":
